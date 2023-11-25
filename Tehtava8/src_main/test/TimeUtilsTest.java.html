@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>TimeUtilsTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Tehtava8 (1) (25.11.2023 18.40.08)</a> &gt; <a href="../../index.html" class="el_group">Tehtava8</a> &gt; <a href="../index.html" class="el_bundle">src/main</a> &gt; <a href="index.source.html" class="el_package">test</a> &gt; <span class="el_source">TimeUtilsTest.java</span></div><h1>TimeUtilsTest.java</h1><pre class="source lang-java linenums">package test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+<span class="fc" id="L6">public class TimeUtilsTest {</span>
+
+    @ParameterizedTest(name = &quot;Aika {0} sekuntia -&gt; {1}&quot;)
+    @CsvSource({
+        &quot;0, '0:00:00'&quot;,
+        &quot;1, '0:00:01'&quot;,
+        &quot;10, '0:00:10'&quot;,
+        &quot;60, '0:01:00'&quot;,
+        &quot;600, '0:10:00'&quot;,
+        &quot;3600, '1:00:00'&quot;,
+        &quot;3665, '1:01:05'&quot;,
+        &quot;31999, '8:53:19'&quot;,
+        &quot;32001, '-1'&quot;,
+        &quot;-1, '-1'&quot;,
+    })
+    public void testSecToTime(int seconds, String expected) {
+<span class="fc" id="L22">        String result = Timeutils.TimeUtils.secToTime(seconds);</span>
+<span class="fc" id="L23">        assertEquals(expected, result);</span>
+<span class="fc" id="L24">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span>Tehtava8 (1) (25.11.2023 18.40.08)</div></body></html>
